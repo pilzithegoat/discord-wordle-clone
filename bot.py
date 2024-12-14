@@ -77,7 +77,7 @@ async def on_message(message: nextcord.Message):
 
     # check that the word is vaild
     if not is_vaild_word(message.content):
-        await message.reply("That is not a vaild word", delete_after=5)
+        await message.reply("That is not a vaild word or try it with lowercases", delete_after=5)
         try:
             await message.delete(delay=5)
         except Exception:
