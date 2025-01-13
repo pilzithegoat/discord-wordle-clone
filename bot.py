@@ -16,6 +16,11 @@ GUILD_IDS= (
     else nextcord.utils.MISSING
 )
 
+@bot.event
+async def on_ready():
+    print("Ready")
+    await bot.change_presence(activity=nextcord.Game("Type /play to start a game"),status=nextcord.Status.online)
+
 
 @bot.slash_command(description="Play a game of wordle", guild_ids=GUILD_IDS)
 async def play(interaction: nextcord.Interaction):
@@ -78,6 +83,9 @@ async def on_message(message: nextcord.Message):
     # check that the word is vaild
     if not is_vaild_word(message.content):
         await message.reply("That is not a vaild word or try it with lowercases", delete_after=5)
+
+        await message.reply("That is not a vaild word", delete_after=5)
+
         try:
             await message.delete(delay=5)
         except Exception:
