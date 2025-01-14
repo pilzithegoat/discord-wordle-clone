@@ -7,7 +7,9 @@ RUN pip3 install -r requirements.txt
 
 COPY . .
 
+ENV TOKEN=your_token_here
+
 RUN mkdir dowloads
-RUN apt-get update && apt-get install -y ffmpeg
+#RUN apt-get update && apt-get install -y ffmpeg
 
 CMD  ["python3", "bot.py"]

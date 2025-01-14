@@ -19,7 +19,7 @@ GUILD_IDS= (
 @bot.event
 async def on_ready():
     print("Ready")
-    await bot.change_presence(activity=nextcord.Game("Type /play to start a game"),status=nextcord.Status.online)
+    await bot.change_presence(activity=nextcord.Game("Type /play to start a game"),status=nextcord.Status.idle)
 
 
 @bot.slash_command(description="Play a game of wordle", guild_ids=GUILD_IDS)
